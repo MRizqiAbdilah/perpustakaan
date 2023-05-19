@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .menu-list {
+        @apply text-[18px] flex items-center;
+    }
+
+    .menu-btn {
+        @apply text-white font-bold px-4 py-1.5 rounded-xl shadow-lg bg-sky-600 hover:bg-sky-700;
+    }
+
+    .form {
+        @apply grid grid-rows-1 grid-cols-1 justify-center;
+    }
+
+    .input-form {
+        @apply w-96 rounded-lg shadow-md mb-2 bg-transparent;
+    }
+
+    .active {
+        @apply text-orange-400;
+    }
+
+    .icon-btn {
+        @apply p-1 flex flex-row text-center text-base hover:bg-sky-600 hover:text-white
+    }
+
+    .icon-delete{
+        @apply
+    }
+}

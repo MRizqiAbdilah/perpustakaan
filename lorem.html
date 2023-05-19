@@ -1,0 +1,32 @@
+public function index()
+    {
+        return view('category.categories', [
+            "title" => 'Post Categories',
+            "categories" => Category::all()
+        ]);
+    }
+
+    public function create()
+    {
+        return view('category.create', [
+            "title" => "Create Book",
+            "categories" => Category::all()
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required'],
+            'slug' => ['unique:posts'],
+        ]);
+        Post::create($validatedData);
+
+        return redirect('/books')->with('success', 'New Book has been Added!');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
+    }
